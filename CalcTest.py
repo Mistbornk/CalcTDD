@@ -1,9 +1,9 @@
 import unittest
 from Calc import Calculator
 
-Total_tests = 0
 
 class TestCalculator(unittest.TestCase):
+    
     def setUp(self):
         self.calc = Calculator()
 
