@@ -1,4 +1,4 @@
-name: Python Tests
+name: Python Tests with Coverage
 
 on: [push, pull_request]
 
@@ -12,7 +12,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'
+        python-version: '3.10'
 
-    - name: Run tests
-      run: python -m unittest CalcTest.py
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run unit tests with coverage
+      run: |
+        coverage run CalcTest.py
+        coverage report
